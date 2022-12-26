@@ -36,8 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'import_export',
     'django.contrib.staticfiles',
-    'admin_panel'
+    'artist',
+    'client',
+    'Project_Data'
 ]
 
 MIDDLEWARE = [
