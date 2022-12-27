@@ -1,6 +1,5 @@
 from django.db import models
 from Artist_Project.Other_Table import *
-# from Artist_Project.project import *
 client_payout = (
    ("In-Progress","In-Progress"),
    ("Done","Done")
@@ -16,7 +15,7 @@ class ClientTable(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.TextField()
     details = models.TextField()
-    # project = models.ForeignKey(Project_Table,on_delete=models.DO_NOTHING,default="NONE")
+    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,default="NONE",related_name='Project_Table')
     Client_Previous_Payout = models.SmallIntegerField()
     Production_Suggested_Project_Advance  = models.SmallIntegerField()
     Latest_Project_Advance = models.SmallIntegerField()

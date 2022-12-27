@@ -1,5 +1,6 @@
 from django.db import models
-from .Artist import worklink,ArtistTable
+from .Artist import *
+from .Artist import worklink
 # from Artist_Project.project import *
 
 

@@ -1,6 +1,5 @@
 from django.db import models
 from .project import *
-from Client_Data.Client import *
 advance_status = (
    ("In-Progress","In-Progress"),
    ("Done","Done")
