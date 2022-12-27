@@ -1,6 +1,5 @@
 from django.db import models
 
-from Artist_Project.Other_Table import *
 
 rating = (
     ("1","1"),
@@ -21,14 +20,14 @@ class worklink(models.Model):
 
 class ArtistTable(models.Model):
     id = models.IntegerField(primary_key=True)
-    skill = models.ManyToManyField(Skill)
+    skill = models.ManyToManyField('Artist_Project.Skill',related_name='Skill')
     name = models.CharField(max_length=100)
     profile_image = models.ImageField(upload_to='images')
     age = models.SmallIntegerField()
     city = models.CharField(max_length=255)
-    genre = models.ManyToManyField(Genre)
-    location = models.ManyToManyField(Location)
-    language = models.ManyToManyField(Language)
+    genre = models.ManyToManyField('Artist_Project.Genre',related_name='Genre')
+    location = models.ManyToManyField('Artist_Project.Location',related_name='Location')
+    language = models.ManyToManyField('Artist_Project.Language',related_name='Language')
     worklink = models.ManyToManyField(worklink)
     otherperformart = models.TextField()
     social_link_f = models.CharField(max_length=100) 

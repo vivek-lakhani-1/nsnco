@@ -1,5 +1,4 @@
 from django.db import models
-from Artist_Project.Other_Table import *
 client_payout = (
    ("In-Progress","In-Progress"),
    ("Done","Done")

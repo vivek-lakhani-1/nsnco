@@ -1,7 +1,5 @@
 from django.db import models
-from .Artist import *
-from .Artist import worklink
-# from Artist_Project.project import *
+
 
 
 status = (
@@ -11,9 +9,9 @@ status = (
 )
 
 class ProjectDemos(models.Model):
-    artist = models.ForeignKey(ArtistTable,on_delete=models.DO_NOTHING)
-    demo_work = models.ForeignKey(worklink,on_delete=models.DO_NOTHING)
-    # project = models.ForeignKey(Project_Table,on_delete=models.DO_NOTHING)
+    artist = models.ForeignKey('Artist.ArtistTable',on_delete=models.DO_NOTHING,related_name='ArtistTable')
+    demo_work = models.ForeignKey('Artist.worklink',on_delete=models.DO_NOTHING,related_name='worklink')
+    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table')
     Artist_Status = models.CharField(
         max_length=100,
         choices=status,

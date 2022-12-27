@@ -1,6 +1,5 @@
 from django.db import models
-from Artist_Project.project import *
-from .Artist import *
+
 
 
 hiring_status = (
@@ -8,15 +7,15 @@ hiring_status = (
    ("Done","Done")
 )
 class ArtistRequest(models.Model):
-    skill = models.ForeignKey(Skill,on_delete=models.DO_NOTHING)
-    location = models.ForeignKey(Location,on_delete=models.DO_NOTHING)
-    genre = models.ManyToManyField(Genre)
-    language = models.ManyToManyField(Language)
+    skill = models.ForeignKey('Artist_Project.Skill',on_delete=models.DO_NOTHING,related_name='Skill')
+    location = models.ForeignKey('Artist_Project.Location',on_delete=models.DO_NOTHING,related_name='Location')
+    genre = models.ManyToManyField('Artist_Project.Genre',related_name='Genre')
+    language = models.ManyToManyField('Artist_Project.Language',related_name='Language')
     other_Performing_Art_Details = models.TextField()
     min_budget = models.SmallIntegerField()
     max_budget = models.SmallIntegerField()
     budget = models.TextField()
-    project = models.ForeignKey(Project_Table,on_delete=models.DO_NOTHING)
+    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table')
     production_hiring = models.SmallIntegerField()
     servicing_hiring = models.SmallIntegerField()
     # shorlisted_artist = models.ForeignKey.one_to_many(artist_table.artist_id,on_delete=models.DO_NOTHING)
