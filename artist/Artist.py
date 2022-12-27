@@ -1,6 +1,6 @@
 from django.db import models
 
-from Project_Data.Other_table import *
+from Artist_Project.Other_Table import *
 
 rating = (
     ("1","1"),

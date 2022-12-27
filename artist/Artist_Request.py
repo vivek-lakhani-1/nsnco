@@ -1,9 +1,6 @@
 from django.db import models
-
-from Project_Data.project import *
-
-
-from .Artist import *
+from Artist_Project.project import *
+# from .Artist import *
 
 
 hiring_status = (

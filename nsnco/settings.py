@@ -19,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-qp^621#r(k=_7z^b@z277so3n(q(lj0u+!zp1*0s_!@2hv0y%+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,12 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'import_export',
     'django.contrib.staticfiles',
-    'artist',
-    'client',
-    'Project_Data'
+    'import_export',
+    'Client_Data',
+    'Artist',
+    'Artist_Project'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
