@@ -1,5 +1,5 @@
 from django.db import models
-from .project import *
+
 advance_status = (
    ("In-Progress","In-Progress"),
    ("Done","Done")
@@ -10,8 +10,8 @@ contract_doc_status = (
 )
 
 class Project_Fee(models.Model):
-    project_id = models.ForeignKey(Project_Table,on_delete=models.DO_NOTHING)
-    # client_id = models.ForeignKey(ClientTable,on_delete=models.DO_NOTHING)
+    project_id = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table0')
+    client_id = models.ForeignKey('Client_Data.ClientTable',on_delete=models.DO_NOTHING,related_name='ClientTable3')
     solution_fee = models.SmallIntegerField()
     Production_Advance = models.SmallIntegerField()
     Negotiated_Advance = models.SmallIntegerField()

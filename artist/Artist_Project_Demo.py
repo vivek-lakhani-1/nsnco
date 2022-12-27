@@ -9,9 +9,9 @@ status = (
 )
 
 class ProjectDemos(models.Model):
-    artist = models.ForeignKey('Artist.ArtistTable',on_delete=models.DO_NOTHING,related_name='ArtistTable')
-    demo_work = models.ForeignKey('Artist.worklink',on_delete=models.DO_NOTHING,related_name='worklink')
-    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table')
+    artist = models.ForeignKey('Artist.ArtistTable',on_delete=models.DO_NOTHING,related_name='ArtistTable1')
+    demo_work = models.ForeignKey('Artist.worklink',on_delete=models.DO_NOTHING,related_name='worklink0')
+    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table3')
     Artist_Status = models.CharField(
         max_length=100,
         choices=status,

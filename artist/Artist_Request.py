@@ -15,7 +15,7 @@ class ArtistRequest(models.Model):
     min_budget = models.SmallIntegerField()
     max_budget = models.SmallIntegerField()
     budget = models.TextField()
-    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table')
+    project = models.ForeignKey('Artist_Project.Project_Table',on_delete=models.DO_NOTHING,related_name='Project_Table1')
     production_hiring = models.SmallIntegerField()
     servicing_hiring = models.SmallIntegerField()
     # shorlisted_artist = models.ForeignKey.one_to_many(artist_table.artist_id,on_delete=models.DO_NOTHING)

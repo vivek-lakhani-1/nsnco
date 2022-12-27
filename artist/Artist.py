@@ -20,14 +20,14 @@ class worklink(models.Model):
 
 class ArtistTable(models.Model):
     id = models.IntegerField(primary_key=True)
-    skill = models.ManyToManyField('Artist_Project.Skill',related_name='Skill')
+    skill = models.ManyToManyField('Artist_Project.Skill',related_name='Skill1')
     name = models.CharField(max_length=100)
     profile_image = models.ImageField(upload_to='images')
     age = models.SmallIntegerField()
     city = models.CharField(max_length=255)
-    genre = models.ManyToManyField('Artist_Project.Genre',related_name='Genre')
-    location = models.ManyToManyField('Artist_Project.Location',related_name='Location')
-    language = models.ManyToManyField('Artist_Project.Language',related_name='Language')
+    genre = models.ManyToManyField('Artist_Project.Genre',related_name='Genre1')
+    location = models.ManyToManyField('Artist_Project.Location',related_name='Location1')
+    language = models.ManyToManyField('Artist_Project.Language',related_name='Language1')
     worklink = models.ManyToManyField(worklink)
     otherperformart = models.TextField()
     social_link_f = models.CharField(max_length=100) 

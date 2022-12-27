@@ -1,6 +1,5 @@
 from django.db import models
-# from Artist.Artist import *
-# from Artist.Artist_Project_Demo import ProjectDemos
+
 
 status = (
     ("Unpaid","Unpaid"),
@@ -16,12 +15,12 @@ contract_doc_status = (
 
 class Project_Table(models.Model):
     project = models.IntegerField(primary_key=True)
-    client = models.ForeignKey('Client_Data.ClientTable',on_delete=models.DO_NOTHING,related_name='ClientTable')
+    client = models.ForeignKey('Client_Data.ClientTable',on_delete=models.DO_NOTHING,related_name='ClientTable5')
     comment = models.TextField()
-    shorlisted_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable')
-    assigned_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable')
-    showcase_demo = models.ManyToManyField('Artist.worklink',related_name='worklink')
-    project_demo = models.ManyToManyField('Artist.ProjectDemos',related_name='ProjectDemos')
+    shorlisted_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable5')
+    assigned_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable4')
+    showcase_demo = models.ManyToManyField('Artist.worklink',related_name='worklink1')
+    project_demo = models.ManyToManyField('Artist.ProjectDemos',related_name='ProjectDemos2')
     post_project_client_feedbacks = models.TextField()
     project_fees_status = models.CharField(
         max_length=10,
