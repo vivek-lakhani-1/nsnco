@@ -14,13 +14,13 @@ contract_doc_status = (
 
 
 class Project_Table(models.Model):
-    project = models.IntegerField(primary_key=True)
+    project_id = models.AutoField(primary_key=True)
     client = models.ForeignKey('Client_Data.ClientTable',on_delete=models.DO_NOTHING,related_name='ClientTable5')
     comment = models.TextField()
-    shorlisted_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable5')
-    assigned_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable4')
-    showcase_demo = models.ManyToManyField('Artist.worklink',related_name='worklink1')
-    project_demo = models.ManyToManyField('Artist.ProjectDemos',related_name='ProjectDemos2')
+    shorlisted_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable5',blank=True,null=True)
+    assigned_artist = models.ManyToManyField('Artist.ArtistTable',related_name='ArtistTable4',blank=True,null=True)
+    showcase_demo = models.ManyToManyField('Artist.worklink',related_name='worklink1',blank=True,null=True)
+    project_demo = models.ManyToManyField('Artist.ProjectDemos',related_name='ProjectDemos2',blank=True,null=True)
     post_project_client_feedbacks = models.TextField()
     project_fees_status = models.CharField(
         max_length=10,
@@ -32,6 +32,9 @@ class Project_Table(models.Model):
         choices=contract_doc_status,
         default=1
     )
+    
+    def __str__(self):
+        return str(self.project_id) + "__" + str(self.client)
 
     
     

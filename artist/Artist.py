@@ -17,30 +17,40 @@ rating = (
 
 class worklink(models.Model):
     worklink = models.CharField(max_length=200)
+    def __str__(self):
+        return self.worklink
 
 class ArtistTable(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     skill = models.ManyToManyField('Artist_Project.Skill',related_name='Skill1')
     name = models.CharField(max_length=100)
     profile_image = models.ImageField(upload_to='images')
-    age = models.SmallIntegerField()
+    age = models.SmallIntegerField(null=True,blank=True)
     city = models.CharField(max_length=255)
     genre = models.ManyToManyField('Artist_Project.Genre',related_name='Genre1')
     location = models.ManyToManyField('Artist_Project.Location',related_name='Location1')
     language = models.ManyToManyField('Artist_Project.Language',related_name='Language1')
     worklink = models.ManyToManyField(worklink)
-    otherperformart = models.TextField()
-    social_link_f = models.CharField(max_length=100) 
-    social_link_l = models.CharField(max_length=100) 
-    social_link_p = models.CharField(max_length=100) 
     number = models.SmallIntegerField()
-    manger = models.BooleanField()
-    budget_range = models.TextField()
+    manger = models.BooleanField(blank=True)
+    manager_name = models.CharField(max_length=100,blank=True)
+    manager_contact_no = models.CharField(max_length=100,blank=True)
+    manager_contact_email = models.CharField(max_length=100,blank=True)
+    min_budget = models.SmallIntegerField(null=True)
+    max_budget = models.SmallIntegerField(null=True)
     budget_idea = models.TextField()
     am_note = models.TextField()
     pm_note = models.TextField()
-    rating = models.CharField(
+    professional_rating = models.CharField(
         max_length=2,
         choices=rating,
         default=1
     )
+    attitude_rating = models.CharField(
+        max_length=2,
+        choices=rating,
+        default=1
+    )
+  
+    def __str__(self):
+        return str(self.id) + "__" + self.name
